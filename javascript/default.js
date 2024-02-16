@@ -75,7 +75,9 @@ async function getLeagueTable(resultTable = false){
 		_joinTable.forEach(function(item, index) {
 			var MatchDate = new Date(item.Date).getTime();
 			var dateNow = new Date(UTCString(true)).getTime();
-			if (item["Timestamp"] !== undefined){
+			if (obj["Home Score"] == "" && obj["Away Score"] == ""){
+				item["Comment"] = "To Play";
+			} else{
 				var SubmitTime = timestampToDateObj(item["Timestamp"]).getTime();
 				if ((MatchDate + _maxDaysForSubmission) < SubmitTime){
 					item["Comment"] = "Submit Late";
@@ -87,16 +89,8 @@ async function getLeagueTable(resultTable = false){
 				} else {
 					item.Winner = "Draw";
 				}
-			} else{
-				item["Comment"] = "To Play";
-				item["Submit Result"] = "https://docs.google.com/forms/d/e/1FAIpQLSe_zCLLs9ADsMD2oUFQ76WKY2ZMayX_5tVO2M4h4FNhK1RhLA/viewform?usp=pp_url&entry.821820740=" + item['League Year'] + "&entry.492201271=" + item['League Type'].replace(' ', '+') + "&entry.1142329140=" + item['Match Number'];
-			}
-			if (item["Timestamp"] === undefined && ((MatchDate + _maxDaysForSubmission) < dateNow)){
-				item.Winner = "Late To Submit";
 			}
 			if(item["Comment"] == "Game Removed"){item.Winner = "Removed";}
-			delete item["Timestamp"];
-			//delete item["Game Status"];
 			
 		});
 		return (_joinTable)
