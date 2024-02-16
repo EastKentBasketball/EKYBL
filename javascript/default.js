@@ -75,7 +75,7 @@ async function getLeagueTable(resultTable = false){
 		_joinTable.forEach(function(item, index) {
 			var MatchDate = new Date(item.Date).getTime();
 			var dateNow = new Date(UTCString(true)).getTime();
-			if (obj["Home Score"] == "" && obj["Away Score"] == ""){
+			if (item["Home Score"] == "" && item["Away Score"] == ""){
 				item["Comment"] = "To Play";
 			} else{
 				var SubmitTime = timestampToDateObj(item["Timestamp"]).getTime();
