@@ -1,0 +1,23 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: SiteMaster
+nav: "1"
+title: "Results"
+path: "Seasons/Results"
+breadcrumbs: "1"
+---
+<button onclick="forceLeagueRefresh()">Refresh Table</button>
+<div id=tblResults></div>
+<script>
+var yr = new Date().getFullYear();
+var mnth = new Date().getMonth();
+var yrFilter = mnth > 7 ? (yr +"/"+(yr+1)) : ((yr-1) +"/"+yr);
+const z = {"filter":{"League Type":["U10","exact"],"League Year":[yrFilter,"exact"]},"getArrFunction":"getResultTable","id":"tblResults","display":"table-break","colData":[{"col":"League Year","filter":"dropdown"},{"col":"League Type","filter":"dropdown"}],"sort":["-League Points"]};
+docReady(function () {
+	var a = JSON.parse(getLocal("arrSettings_" + z.id));
+	var b = a == null ? z : a;
+	arrAdjust(b);
+});
+</script>

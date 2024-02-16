@@ -1,0 +1,28 @@
+---
+layout: blank
+---
+/*Version {{ site.version_number }}*/
+/*{{ site.urllive }}*/
+
+:root {
+    --main-color: #aed8e6;
+    --second-color: #ee7115;
+    --grey-color: #888;
+    --dark-grey-color: #11468c;
+}
+
+h1, h2, h3 {
+	font-family: Tahoma, sans-serif;
+	text-transform: uppercase;
+}
+
+#navOpenContainer{
+	background-color: var(--second-color);
+}
+#headerContainer{
+	color: var(--second-color);
+}
+
+#navMenu ul{
+	border: 1px solid var(--second-color);
+}
