@@ -14,7 +14,7 @@ breadcrumbs: "1"
 var yr = new Date().getFullYear();
 var mnth = new Date().getMonth();
 var yrFilter = mnth > 7 ? (yr +"/"+(yr+1)) : ((yr-1) +"/"+yr);
-const z = {"filter":{"Comment":["To Play","exact"],"League Year":[yrFilter,"exact"]},"sort":["Date"],"page":[1,250],"getArrFunction":"getLeagueTable","id":"tblSchedule","display":"table-break","colData":["filter",{"col":"League Year","filter":"dropdown"},{"col":"League Type","filter":"dropdown"},{"col":"Home Score","hide":"1"},{"col":"Away Score","hide":"1"},{"col":"Game Status","hide":"2","filter":"dropdown"},{"col":"Date","type":"date"},{"col":"Comment","hide":"2"}]};
+const z = {"filter":{"Comment":["To Play","exact"],"League Year":[yrFilter,"exact"]},"sort":["Date"],"page":[1,250],"getArrFunction":"getLeagueTable","id":"tblSchedule","display":"table-break","colData":["filter",{"col":"League Year","filter":"dropdown"},{"col":"League Type","filter":"dropdown"},{"col":"Home Score","hide":"1"},{"col":"Away Score","hide":"1"},{"col":"Comment","hide":"2","filter":"dropdown"},{"col":"Date","type":"date"}]};
 docReady(function () {
 	var a = JSON.parse(getLocal("arrSettings_" + z.id));
 	var b = a == null ? z : a;
