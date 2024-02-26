@@ -82,6 +82,11 @@ async function getLeagueTable(resultTable = false){
 				if ((MatchDate + _maxDaysForSubmission) < SubmitTime){
 					item["Comment"] = "Submit Late";
 				}
+				if(obj["Comment"] == "Home Forfeit"){
+					item["Away Score"] = 20;
+				}else if(obj["Comment"] == "Away Forfeit"){		
+					item["Home Score"] = 20;
+				}
 				if (item["Home Score"] > item["Away Score"]){
 					item.Winner = item["Home Team"];
 				} else if(item["Home Score"] < item["Away Score"]){
