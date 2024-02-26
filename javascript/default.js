@@ -78,7 +78,7 @@ async function getLeagueTable(resultTable = false){
 			if (item["Home Score"] == "" && item["Away Score"] == ""){
 				item["Comment"] = "To Play";
 			} else{
-				var SubmitTime = timestampToDateObj(item["Timestamp"]).getTime();
+				var SubmitTime = 0;
 				if ((MatchDate + _maxDaysForSubmission) < SubmitTime){
 					item["Comment"] = "Submit Late";
 				}
