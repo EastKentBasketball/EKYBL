@@ -84,7 +84,7 @@ async function getLeagueTable(resultTable = false){
 				}
 				if(item["Comment"] == "Home Forfeit"){
 					item["Away Score"] = 20;
-				}else if(obj["Comment"] == "Away Forfeit"){		
+				}else if(item["Comment"] == "Away Forfeit"){		
 					item["Home Score"] = 20;
 				}
 				if (item["Home Score"] > item["Away Score"]){
