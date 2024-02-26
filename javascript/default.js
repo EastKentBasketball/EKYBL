@@ -75,17 +75,17 @@ async function getLeagueTable(resultTable = false){
 		_joinTable.forEach(function(item, index) {
 			var MatchDate = new Date(item.Date).getTime();
 			var dateNow = new Date(UTCString(true)).getTime();
-			if (item["Home Score"] == "" && item["Away Score"] == "" && item["Comment"] == ""){
+			if(item["Comment"] == "Home Forfeit"){
+				item["Away Score"] = 20;
+			}else if(item["Comment"] == "Away Forfeit"){		
+				item["Home Score"] = 20;
+			}
+			if (item["Home Score"] == "" && item["Away Score"] == ""){
 				item["Comment"] = "To Play";
 			} else{
 				var SubmitTime = 0;
 				if ((MatchDate + _maxDaysForSubmission) < SubmitTime){
 					item["Comment"] = "Submit Late";
-				}
-				if(item["Comment"] == "Home Forfeit"){
-					item["Away Score"] = 20;
-				}else if(item["Comment"] == "Away Forfeit"){		
-					item["Home Score"] = 20;
 				}
 				if (item["Home Score"] > item["Away Score"]){
 					item.Winner = item["Home Team"];
