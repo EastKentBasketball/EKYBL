@@ -5,10 +5,10 @@ layout: blank
 /*{{ site.urllive }}*/
 
 :root {
-    --main-color: #aed8e6;
-    --second-color: #ee7115;
-    --grey-color: #888;
-    --dark-grey-color: #11468c;
+    --main-color: #ee7115;
+    --second-color: #12458c;
+    --grey-color: #aed8e6;
+    --dark-grey-color: #01c4e4;
 }
 
 h1, h2, h3 {
